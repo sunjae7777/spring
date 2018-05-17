@@ -46,28 +46,28 @@ public class UserInsertServlet extends HttpServlet {
 		//part에서 mem_profile정보(파일이름)
 		Part mem_profilePart = request.getPart("mem_profile");
 		String contentString = mem_profilePart.getHeader("Content-disposition");
-		String fileName = FileUtil.getFileName(contentString);
+		//String fileName = FileUtil.getFileName(contentString);
 		
 		String uploadPath = getServletContext().getRealPath("/uploadFolder");
 		// /uploadFoler/ryan.png
-		String mem_profilePath = "/uploadFolder/" + fileName;
-		String filePath = uploadPath + java.io.File.separator + fileName;
+		//String mem_profilePath = "/uploadFolder/" + fileName;
+		//String filePath = uploadPath + java.io.File.separator + fileName;
 		
-		mem_profilePart.write(filePath);
+		//mem_profilePart.write(filePath);
 		mem_profilePart.delete();
 		
-		UserVO userVO = new UserVO(mem_id, mem_pass, mem_name, mem_bir, mem_add1, mem_add2, mem_zip, mem_profilePath, mem_alias);
-		int insertCnt = userService.insertUser(userVO);
-		System.out.println("insertCnt : "  +insertCnt);
+		//UserVO userVO = new UserVO(mem_id, mem_pass, mem_name, mem_bir, mem_add1, mem_add2, mem_zip, mem_profilePath, mem_alias);
+		//int insertCnt = userService.insertUser(userVO);
+		//System.out.println("insertCnt : "  +insertCnt);
 		
 		//정상적으로 신규 회원이 입력된 경우 : 회원 리스트 페이지로 이동
-		if(insertCnt == 1){
+		//if(insertCnt == 1){
 			response.sendRedirect(request.getContextPath() + "/getUserPageList");
-		}
+		//}
 		//정상적으로 회원 입력을 하지 못한 경우 : 신규 회원 입력 페이지
-		else{
+		//else{
 			
-		}
+		//}
 	}
 
 }
